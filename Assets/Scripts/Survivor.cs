@@ -24,17 +24,19 @@ public class Survivor : LivingEntity //catégorise les survivors ds la catégorie 
     protected LivingEntity foodTarget; //les living entity sont des food target
    // protected Water waterTarget; //script de Water à faire !!!!
 
-    void Update()
+     void Update()
     {
+ 
 
         // Increase hunger and thirst over time
         hunger += Time.deltaTime * 1 / TimeToDeathByHunger;
         thirst += Time.deltaTime * 1 / TimeToDeathByThirst;
 
+
         if (hunger >= 1) //si hunger à 1, exécuter fonction mort (définie dans le script living entity)
         {
             Die();
-            messageText.text =" -1 mort de faim";
+            messageText.text = " -1 mort de faim";
             return; 
         }
 
@@ -44,9 +46,8 @@ public class Survivor : LivingEntity //catégorise les survivors ds la catégorie 
             messageText.text = "-1 mort de soif" ;
             return ;
         }
+        
     }
-
-    public TMP_Text messageText; 
-    
+    public TMP_Text messageText;
 }
     
