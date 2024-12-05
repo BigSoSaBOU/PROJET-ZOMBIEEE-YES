@@ -5,38 +5,40 @@ using UnityEngine.UI;
 
 public class BarreManegement : MonoBehaviour
 {
-    public Slider faimSlider; // Première barre
-    public Slider energieSlider; // Deuxième barre
+    public Slider hungerSlider; // Première barre
+    public Slider thirstSlider; // Deuxième barre
 
-    public float faimMax = 100f;
-    public float energieMax = 100f;
+    public float hungerMax = 100f;
+    public float thirstMax = 100f;
 
-    private float faimActuelle;
-    private float energieActuelle;
+    private float hungerActuelle;
+    private float thirstActuelle;
 
     void Start()
     {
-        faimActuelle = faimMax;
-        energieActuelle = energieMax;
+        hungerActuelle = hungerMax;
+        thirstActuelle = thirstMax;
 
-        faimSlider.maxValue = faimMax;
-        faimSlider.value = faimActuelle;
+        hungerSlider.maxValue = hungerMax;
+        hungerSlider.value = hungerActuelle;
 
-        energieSlider.maxValue = energieMax;
-        energieSlider.value = energieActuelle;
+        thirstSlider.maxValue = thirstMax;
+        thirstSlider.value = thirstActuelle;
+
+        //permet de mettre au depart la barre de faim et soif à son état max donc 100%
     }
 
     void Update()
     {
         // Exemple de diminution de faim et énergie
-        faimActuelle -= Time.deltaTime * 1f; // Diminue la faim
-        energieActuelle -= Time.deltaTime * 0.5f; // Diminue l'énergie plus lentement
+        hungerActuelle -= Time.deltaTime * 1f; // Diminue la faim
+        thirstActuelle -= Time.deltaTime * 0.5f; // Diminue l'énergie plus lentement
 
-        faimActuelle = Mathf.Clamp(faimActuelle, 0, faimMax);
-        energieActuelle = Mathf.Clamp(energieActuelle, 0, energieMax);
+        hungerActuelle = Mathf.Clamp(hungerActuelle, 0, hungerMax);
+        thirstActuelle = Mathf.Clamp(thirstActuelle, 0, thirstMax);
 
-        faimSlider.value = faimActuelle;
-        energieSlider.value = energieActuelle;
+        hungerSlider.value = hungerActuelle;
+        thirstSlider.value = thirstActuelle;
 
         // Ajoutez des conséquences si faim ou énergie sont à 0
     }

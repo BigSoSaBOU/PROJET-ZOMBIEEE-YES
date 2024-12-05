@@ -5,14 +5,14 @@ using UnityEngine.UI;
 
 
 
-public class UIFaim : MonoBehaviour
+public class UIHunger : MonoBehaviour
 {
-    public GFAIM faimManager; // Référence au script FaimManager
+    public GHunger faimManager; // Référence au script FaimManager
     public Slider faimSlider; // Référence à la barre de faim (Slider)
 
     void Update()
     {
         // Mettre à jour la valeur de la barre de faim
-        faimSlider.value = faimManager.faim;
+        faimSlider.value = faimManager.hunger;
     }
 }
