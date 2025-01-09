@@ -273,7 +273,6 @@ MonoBehaviour:
   - {fileID: 8407807420898486765, guid: 93e104318782e714b814007f7df626b3, type: 3}
   - {fileID: 2108146541881241300, guid: 35af13f8e0f7e1f47b636c47a27a2c72, type: 3}
   - {fileID: 6864511292026295085, guid: f5e34516317ef34459229c83455f2c95, type: 3}
-  _plante: 0
   _planteQuant: 0
 --- !u!4 &353834164
 Transform:

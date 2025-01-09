@@ -6,10 +6,12 @@ public class Spawner : MonoBehaviour
 {
     public GameObject[] livingObject;
     private int _spawnerQuant = 0;
-    public int _plante = 0;
     public int _planteQuant;
     
-   
+    
+
+
+
     void Start()
     {
         while (_spawnerQuant < 101)
@@ -28,12 +30,13 @@ public class Spawner : MonoBehaviour
     private void Update()
     {
         
-        _planteQuant = GameObject.FindGameObjectsWithTag("Player").Length;
+        _planteQuant = GameObject.FindGameObjectsWithTag("plante.prefab").Length; //je ne trouve pas les plantes
         
         
-        while (_planteQuant < 0) 
+        while (_planteQuant < 30) 
         {
-        
+            Vector3 randomSpawnPosition = new Vector3(Random.Range(-200, 201), 5, (Random.Range(-200, 201))); 
+            Instantiate(livingObject[2], randomSpawnPosition, Quaternion.identity);
         }
         
        

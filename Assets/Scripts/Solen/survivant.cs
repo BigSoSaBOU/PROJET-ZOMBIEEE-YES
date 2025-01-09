@@ -11,7 +11,8 @@ public class survivant : MonoBehaviour
     private float _updateDestinationCountdown = 0f;
     public float updateDestinationInterval = 0.5f;
     private Vector3 randomPosition;
-    
+    //bool _hasTarget = false;
+
 
     // Start is called before the first frame update
     private void Start()
@@ -27,16 +28,19 @@ public class survivant : MonoBehaviour
             {
                 Vector3 destinationFuite = transform.position + (transform.position - _zombie.transform.position);
                 _agent.destination = destinationFuite;
+                //_hasTarget = true;
                 float distanceSecurité = Vector3.Distance(transform.position, _zombie.transform.position);
-                if (distanceSecurité > 5)                                                                                         //cassé 
+                if (distanceSecurité > 15)                                                                                         //cassé 
                 {
+                    
                     randomPosition = new Vector3(Random.Range(-200, 201), transform.position.y, Random.Range(-200, 201));
                     _agent.destination = randomPosition;
                     _updateDestinationCountdown = updateDestinationInterval;
+                   // _hasTarget = false;
                     //Debug.Log("zombie");
 
                 }
-                return;
+                
 
             }
             
@@ -44,29 +48,38 @@ public class survivant : MonoBehaviour
         }
         if (_target != null)
         {
+            //if (_hasTarget == true)
+                //return;
             _updateDestinationCountdown = _updateDestinationCountdown - Time.deltaTime;
 
             if (_updateDestinationCountdown <= 0f)
             {
                 _agent.destination = _target.transform.position;
                 _updateDestinationCountdown = updateDestinationInterval;
-                
+                //_hasTarget = true;
+
             }
             
+
 
         }
         
         else //ou : if (_target = null)
         {
+           //if (_hasTarget == true)
+               // return;
             _updateDestinationCountdown = _updateDestinationCountdown - Time.deltaTime;
             if (_updateDestinationCountdown <= 0f)
             {
                 randomPosition = new Vector3(Random.Range(-50, 51), transform.position.y, Random.Range(-50, 51));
                 _agent.destination = randomPosition;
                 _updateDestinationCountdown = updateDestinationInterval;
+                //_hasTarget = true;
             }
+            return;
+
         }
-        
+
 
 
     }
